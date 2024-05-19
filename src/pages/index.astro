@@ -51,51 +51,49 @@ import { yearsInIndustry } from "../js/yearsInIndustry";
       learning.<br class="desc break" />
     </p>
 
-    <Button
-      variant="outline"
-      size="md"
-      colorScheme="orange"
-      href="/Kaung Si Phyo Resume.pdf"
-      gap="10px"
-    >
-      View Resume
-      <svg
-        style="margin-top: -4px; margin-left: 8px; width: 16px;"
-        stroke="currentColor"
-        fill="none"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        height="1em"
-        xmlns="http://www.w3.org/2000/svg"
+    <div class="button-container">
+      <Button
+        variant="outline"
+        size="md"
+        colorScheme="orange"
+        href="/Kaung Si Phyo Resume.pdf"
+        gap="10px"
       >
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline
-          points="7 10 12 15 17 10"></polyline><line
-          x1="12"
-          y1="15"
-          x2="12"
-          y2="3"></line>
-      </svg>
-    </Button>
+        View Resume
+        <svg
+          style="margin-left: 5px"
+          stroke="currentColor"
+          fill="currentColor"
+          stroke-width="0"
+          viewBox="0 0 20 20"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            fill-rule="evenodd"
+            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+            clip-rule="evenodd"></path></svg
+        > 
+      </Button>
 
-    <Button href="/projects" variant="outline" size="md" colorScheme="green">
-      See my projects
-      <svg
-        style="margin-left: 5px"
-        stroke="currentColor"
-        fill="currentColor"
-        stroke-width="0"
-        viewBox="0 0 20 20"
-        height="1em"
-        width="1em"
-        xmlns="http://www.w3.org/2000/svg"
-        ><path
-          fill-rule="evenodd"
-          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-          clip-rule="evenodd"></path></svg
-      >
-    </Button>
+      <Button href="/projects" variant="outline" size="md" colorScheme="green">
+        View projects
+        <svg
+          style="margin-left: 5px"
+          stroke="currentColor"
+          fill="currentColor"
+          stroke-width="0"
+          viewBox="0 0 20 20"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            fill-rule="evenodd"
+            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+            clip-rule="evenodd"></path></svg
+        >
+      </Button>
+    </div>
   </section>
 </DefaultLayout>
 
@@ -182,6 +180,12 @@ import { yearsInIndustry } from "../js/yearsInIndustry";
 
     .desc-break {
       display: none;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
     }
   }
 
