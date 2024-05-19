@@ -153,6 +153,17 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
     text-align: center;
   }
 
+  @media screen and (max-width: 1200px) {
+    .icon-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin: 2em auto;
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+  }
+
   @media screen and (max-width: 980px) {
     .main-section {
       gap: 1rem;
@@ -169,6 +180,15 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
     :global(.devicon) {
       width: 45px !important;
       height: 45px !important;
+    }
+
+    .icon-container {
+      display: block;
+      width: 30rem;
+    }
+
+    .card {
+      margin-bottom: 30px;
     }
   }
 </style>
