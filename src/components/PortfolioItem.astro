@@ -1,0 +1,270 @@
+---
+import type { Skills } from "../types";
+import Button from "./Button.astro";
+import DevLogo from "./DevLogo.astro";
+
+interface Props {
+  title: string;
+  tags: Skills[];
+  image: string;
+  isOpenSource?: boolean;
+  githubStarsCount?: number;
+  projectLink?: string;
+  sourceCode?: string;
+  projectYear: string;
+}
+
+const {
+  title,
+  tags,
+  image,
+  isOpenSource,
+  githubStarsCount,
+  projectLink,
+  sourceCode,
+  projectYear,
+} = Astro.props;
+---
+
+<article class="portfolio-item-wrapper">
+  <div class="portfolio-item">
+    <img class="image" src={image} alt={title + " showcase"} width="500px" />
+    <div class="project-year">{projectYear}</div>
+    <div class="inner-content">
+      <h2 class="title">
+        {title}
+      </h2>
+      {
+        isOpenSource && (
+          <a
+            class="openSource"
+            href={sourceCode}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="open-source-badge">Open Source</span>
+          </a>
+        )
+      }
+
+      <div class="slot-content"><slot name="description" /></div>
+
+      <div class="tags">
+        {tags.map((tag) => <DevLogo icon={tag} size={30} />)}
+      </div>
+
+      <div class="buttons">
+        {
+          projectLink && (
+            <Button
+              variant="outline"
+              href={projectLink}
+              domProps={{ target: "_blank", rel: "noopener noreferrer" }}
+            >
+              View Project
+              <svg
+                style="margin-left: 5px;"
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="0"
+                viewBox="0 0 24 24"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <>
+                  <path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z" />
+                  <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z" />
+                </>
+              </svg>
+            </Button>
+          )
+        }
+
+        {
+          sourceCode && (
+            <Button
+              variant="outline"
+              href={sourceCode}
+              domProps={{ target: "_blank", rel: "noopener noreferrer" }}
+            >
+              View Source Code
+              <svg
+                style="margin-left: 5px;"
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="0"
+                viewBox="0 0 24 24"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"
+                  stroke="none"
+                />
+              </svg>
+            </Button>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</article>
+
+<style lang="scss">
+  .portfolio-item-wrapper {
+    position: relative;
+  }
+
+  .portfolio-item {
+    display: block;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: rgb(255 255 255 / 5%);
+    padding: 25px;
+    overflow: hidden;
+    border-radius: 10px;
+    align-items: center;
+    height: 100%;
+  }
+
+  .title {
+    color: var(--color-mint);
+    font-size: var(--font-size-4xl);
+    margin-bottom: 1rem;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .project-year {
+    position: absolute;
+    left: -50px;
+    top: 55px;
+    transform: rotate(270deg);
+    color: var(--color-silver-700);
+    font-size: var(--font-size-4xl);
+  }
+
+  .image {
+    filter: drop-shadow(0 0 3rem rgb(21 255 147 / 35%));
+    border-radius: 6px;
+    align-self: center;
+    flex: 1;
+    max-width: 400px;
+    max-height: 300px;
+    object-fit: contain;
+    max-width: 100%;
+    padding: 25px;
+  }
+
+  .buttons {
+    margin-top: 2rem;
+  }
+
+  .inner-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slot-content {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 90px;
+    margin-bottom: 1rem;
+  }
+
+  .tags {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .open-source-badge {
+    font-size: 12px;
+    color: var(--color-orange-400);
+    border: 1px solid var(--color-orange-400);
+    padding: 2px 12px;
+    border-radius: 4px;
+  }
+
+  .ghStars {
+    color: var(--color-silver-300);
+    font-size: var(--font-size-base);
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .openSource {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .openSource:hover {
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 1360px) {
+    .project-year {
+      font-size: var(--font-size-xl);
+      left: -32px;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .image {
+      width: 350px;
+      padding: 15px 0;
+    }
+  }
+
+  @media screen and (max-width: 980px) {
+    .portfolio-item-wrapper:nth-child(even) .portfolio-item {
+      flex-direction: column;
+    }
+
+    .portfolio-item {
+      margin: 0 -25px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      background: rgb(255 255 255 / 5%);
+      padding: 25px;
+      overflow: hidden;
+      border-radius: 10px;
+      align-items: center;
+    }
+
+    .image {
+      max-width: 100%;
+      align-self: center;
+      width: 500px;
+    }
+
+    .title {
+      font-size: var(--font-size-2xl);
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .project-year {
+      transform: rotate(0);
+      top: 3px;
+      left: unset;
+      right: -20px;
+      margin: 10px;
+    }
+    .slot-content {
+      height: auto; /* Allows content to expand fully on smaller screens */
+      -webkit-line-clamp: none;
+      overflow: visible;
+      text-overflow: clip;
+    }
+  }
+</style>

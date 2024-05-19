@@ -1,0 +1,25 @@
+{
+  "name": "portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.8.6",
+    "@astrojs/check": "^0.7.0",
+    "typescript": "^5.4.5",
+     "three": "^0.164.1",
+    "tippy.js": "6.3.7"
+  },
+  "devDependencies": {
+    "@types/three": "^0.164.0",
+    "autoprefixer": "10.4.15",
+    "cssnano": "6.0.1",
+    "sass": "1.66.1"
+  }
+}

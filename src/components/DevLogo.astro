@@ -1,0 +1,80 @@
+---
+import type { Skills } from '../types';
+
+export const devIcons: { title: Skills, filePath: string, tag?: string }[] = [
+  { "title": "JavaScript", "filePath": "/images/dev-logos/javascript.svg", tag: "lang" },
+  { "title": "TypeScript", "filePath": "/images/dev-logos/typescript.svg", tag: "lang" },
+  { "title": "React", "filePath": "/images/dev-logos/react.svg", tag: "frontend" },
+  { "title": "Next.js", "filePath": "/images/dev-logos/nextjs.png", tag: "frontend" },
+  { "title": "Astro", "filePath": "/images/dev-logos/astro.png", tag: "frontend" },
+  { "title": "Node.js", "filePath": "/images/dev-logos/nodejs.svg", tag: "backend" },
+  { "title": "HTML", "filePath": "/images/dev-logos/html.svg", tag: "frontend" },
+  { "title": "CSS", "filePath": "/images/dev-logos/css.svg", tag: "frontend" },
+  { "title": "Tailwind CSS", "filePath": "/images/dev-logos/tailwind.svg", tag: "frontend" },
+  { "title": "Python", "filePath": "/images/dev-logos/python.svg", tag: "lang" },
+  { "title": "MongoDB", "filePath": "/images/dev-logos/mongodb.svg", tag: "database" },
+  { "title": "PostgreSQL", "filePath": "/images/dev-logos/postgresql.svg", tag: "database" },
+  { "title": "MySQL", "filePath": "/images/dev-logos/mysql.svg", tag: "database" },
+  { "title": "Redis", "filePath": "/images/dev-logos/redis.svg", tag: "database" },
+  { "title": "Linux", "filePath": "/images/dev-logos/linux.svg", tag: "devOps" },
+  { "title": "Docker", "filePath": "/images/dev-logos/docker.svg", tag: "devOps" },
+  { "title": "AWS", "filePath": "/images/dev-logos/aws.svg", tag: "devOps" },
+  { "title": "Git", "filePath": "/images/dev-logos/git.svg", tag: "devOps" },
+  { "title": "Figma", "filePath": "/images/dev-logos/figma.svg", tag: "frontend" },
+  { "title": "Bootstrap", "filePath": "/images/dev-logos/bootstrap.svg", tag: "frontend"},
+  { "title": "Android", "filePath": "/images/dev-logos/android.svg", tag: "mobile" },
+  { "title": "Cloudinary", "filePath": "/images/dev-logos/cloudinary.svg", tag: "database" },
+  { "title": "Express.js", "filePath": "/images/dev-logos/express.svg", tag: "backend" },
+  { "title": "Firebase", "filePath": "/images/dev-logos/firebase.svg", tag: "database"},
+  { "title": "jQuery", "filePath": "/images/dev-logos/jQuery.svg", tag: "frontend"},
+  { "title": "Java", "filePath": "/images/dev-logos/java.svg", tag: "backend" },
+  { "title": "Java", "filePath": "/images/dev-logos/java.svg", tag: "lang" },
+  { "title": "MUI", "filePath": "/images/dev-logos/mui.svg", tag: "frontend" },
+  { "title": "Microsoft SQL server", "filePath": "/images/dev-logos/mssql.svg", tag: "database"},
+  { "title": "NextAuth", "filePath": "/images/dev-logos/nextauth.png", tag: "backend"},
+  { "title": "Prisma", "filePath": "/images/dev-logos/prisma.svg", tag: "database" },
+  { "title": "React Native", "filePath": "/images/dev-logos/react-native.svg", tag: "mobile" },
+  { "title": "Spring Boot", "filePath": "/images/dev-logos/spring.svg", tag: "backend" },
+  { "title": "Supabase", "filePath": "/images/dev-logos/supabase.svg", tag: "database" },
+  { "title": "S3", "filePath": "/images/dev-logos/s3.svg", tag: "backend" },
+  { "title": "tRPC", "filePath": "/images/dev-logos/trpc.svg", tag: "backend" },
+  { "title": "Terraform", "filePath": "/images/dev-logos/terraform.svg", tag: "devOps" },
+  { "title": "SST", "filePath": "/images/dev-logos/sst.svg", tag: "devOps" }
+];
+
+interface Props {
+  icon: Skills;
+  size?: number;
+}
+
+const { icon, size = 60 } = Astro.props;
+
+const logo = devIcons.find(devIcon => devIcon.title === icon);
+
+if (!logo) {
+  throw new Error(`${icon} does not exist in devIcons`);
+}
+---
+
+<img
+  class="devicon"
+  src={logo.filePath}
+  alt={logo.title}
+  title={logo.title}
+  width={size + "px"}
+  height={size + "px"}
+/>
+
+<script>
+  import tippy, { createSingleton } from 'tippy.js';
+
+  const tippyInstances = tippy(".devicon", {
+    content: (reference: any) => reference.getAttribute("title"),
+  });
+
+  const singleton = createSingleton(tippyInstances, {
+    moveTransition: 'transform 0.2s ease-out',
+  });
+
+  singleton.enable();
+</script>

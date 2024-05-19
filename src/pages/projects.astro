@@ -1,0 +1,105 @@
+---
+import DefaultLayout from "../components/LayoutDefault.astro";
+import PortfolioItem from "../components/PortfolioItem.astro";
+---
+
+<DefaultLayout
+  documentTitle="Projects"
+  documentDescription="Welcome to my portfolio, showcasing a selection of projects I've worked on."
+>
+  <div class="container">
+    <h1 class="main-heading text-swipe-animation">Projects</h1>
+    <div class="intro">
+      <p>
+        Welcome to my portfolio, showcasing a selection of projects and side
+        projects I've worked on.
+      </p>
+    </div>
+
+    <section class="projects">
+      <PortfolioItem
+        isOpenSource
+        sourceCode=""
+        projectYear="2024"
+        title="My Personal Portfolio"
+        image="/images/portfolio.png"
+        tags={["JavaScript", "TypeScript", "Astro", "CSS", "HTML"]}
+      >
+        <p slot="description">
+          Yes, you are seeing this project now. I recreated my portfolio with
+          Astro.
+        </p>
+      </PortfolioItem>
+      <PortfolioItem
+        projectLink="https://cron.timeles.live"
+        projectYear="2024"
+        title="SST Cron Job"
+        image="/images/sstCron.png"
+        tags={[
+          "TypeScript",
+          "Next.js",
+          "Tailwind CSS",
+          "tRPC",
+          "Prisma",
+          "AWS",
+          "SST",
+        ]}
+      >
+        <p slot="description">
+          For our IMCS toolkit project, my friend and I developed a proof of
+          concept for scheduled email sending using SST as Infrastructure as
+          Code (IaC) and AWS EventBridge for scheduling.
+        </p>
+      </PortfolioItem>
+      <PortfolioItem
+        projectYear="2023"
+        title="Techzero"
+        image="/images/techzero.webp"
+        projectLink="https://techzero.onrender.com"
+        tags={[
+          "JavaScript",
+          "React",
+          "Tailwind CSS",
+          "MySQL",
+          "Express.js",
+          "Node.js",
+          "Redis",
+        ]}
+      >
+        <p slot="description">
+          Inspired by Challenger , with my 3 friends, we create an e-commerce
+          tech platform developed for our school project.
+        </p>
+      </PortfolioItem>
+    </section>
+  </div>
+</DefaultLayout>
+
+<style lang="scss">
+  .projects {
+    row-gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    align-items: stretch;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .projects {
+      row-gap: 2rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      align-items: stretch;
+    }
+  }
+
+  @media screen and (max-width: 980px) {
+    .projects {
+      margin: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+</style>

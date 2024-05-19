@@ -1,0 +1,213 @@
+---
+import DefaultLayout from "../components/LayoutDefault.astro";
+import Button from "../components/Button.astro";
+import { yearsInIndustry } from "../js/yearsInIndustry";
+---
+
+<DefaultLayout documentTitle="Kaung Si Phyo">
+  <section class="container" style="z-index: 1; position: relative;">
+    <h1>
+      <span class="intro-welcome">Hello and Welcome, I'm</span><br />
+      <span class="intro-name text-swipe-animation">Kaung Si Phyo.</span>
+      <span class="cursor"></span>
+    </h1>
+    <h2 class="intro">
+      Crafting Memorable <br class="intro-break" />Digital Experiences
+    </h2>
+    <p class="desc">
+      I am a diligent student at Singapore Polytechnic, currently pursuing a <br
+        class="desc break"
+      />
+      diploma in Information Technology with a minor in Data Analysis and AI. My<br
+        class="desc break"
+      />
+      passion for technology is matched by my commitment to developing scalable web<br
+        class="desc break"
+      />
+      applications.
+    </p>
+    <p class="desc">
+      With over {yearsInIndustry} years of experience specializing in JavaScript,<br
+        class="desc break"
+      />
+      React, Node.js, and Python, I've honed my skills in software development while<br
+        class="desc break"
+      />
+      also diving deep into data analytics. My academic and project works reflect<br
+        class="desc break"
+      />
+      a blend of technical expertise and a strong understanding of data-driven decision<br
+        class="desc break"
+      />
+      making.
+    </p>
+    <p class="desc">
+      I am also proactive in sharing my knowledge with peers, helping others<br
+        class="desc break"
+      />
+      understand complex concepts and encouraging a culture of innovation and continuous<br
+        class="desc break"
+      />
+      learning.<br class="desc break" />
+    </p>
+
+    <Button
+      variant="outline"
+      size="md"
+      colorScheme="orange"
+      href="/Kaung Si Phyo Resume.pdf"
+      gap="10px"
+    >
+      View Resume
+      <svg
+        style="margin-top: -4px; margin-left: 8px; width: 16px;"
+        stroke="currentColor"
+        fill="none"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        height="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline
+          points="7 10 12 15 17 10"></polyline><line
+          x1="12"
+          y1="15"
+          x2="12"
+          y2="3"></line>
+      </svg>
+    </Button>
+
+    <Button href="/projects" variant="outline" size="md" colorScheme="green">
+      See my projects
+      <svg
+        style="margin-left: 5px"
+        stroke="currentColor"
+        fill="currentColor"
+        stroke-width="0"
+        viewBox="0 0 20 20"
+        height="1em"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+        ><path
+          fill-rule="evenodd"
+          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+          clip-rule="evenodd"></path></svg
+      >
+    </Button>
+  </section>
+</DefaultLayout>
+
+<style lang="scss">
+  $waves-opacity: 0.5;
+
+  @keyframes fadeInWaves {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: $waves-opacity;
+    }
+  }
+
+  canvas#waves {
+    width: 100%;
+    height: 100vh;
+    animation: fadeInWaves 2s;
+    background: transparent;
+    opacity: $waves-opacity;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  h1 {
+    line-height: 2.5rem;
+    margin: 1rem 0;
+  }
+
+  .intro-welcome {
+    color: var(--color-mint);
+    font-family: var(--font-family-IBM-Plex-Mono);
+    font-weight: 600;
+    font-size: var(--font-size-base);
+  }
+
+  .intro-name {
+    font-family: var(--font-family-Mukta);
+    font-size: var(--font-size-14xl);
+    display: inline-block;
+    padding: 10px 0;
+    color: var(--color-mint);
+  }
+
+  .intro {
+    color: var(--color-silver-300);
+    font-size: var(--font-size-10xl);
+    line-height: 3.25rem;
+    margin: 1rem 0;
+  }
+
+  .desc {
+    color: var(--color-silver-100);
+    font-size: var(--font-size-lg);
+    line-height: 1.5em;
+    margin: 1.5rem 0;
+  }
+
+  @media screen and (max-width: 980px) {
+    h1 {
+      line-height: 1.75rem;
+      margin: 0.5rem 0;
+    }
+
+    .intro-name {
+      font-size: var(--font-size-10xl);
+      line-height: 3rem;
+    }
+
+    .intro {
+      font-size: var(--font-size-3xl);
+      line-height: 2rem;
+      margin: 0.5rem 0;
+    }
+
+    .intro-break {
+      display: none;
+    }
+
+    .desc-break {
+      display: none;
+    }
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 20px;
+    height: 4rem;
+    opacity: 0;
+    background-color: var(--color-mint);
+    margin-left: 10px;
+    animation: blink 900ms steps(2, start) infinite;
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+</style>
+
+<script hoist>
+  document.addEventListener("DOMContentLoaded", () => {
+    const nameElement = document.querySelector(".intro-name");
+    nameElement.addEventListener("animationend", () => {
+      const cursor = document.querySelector(".cursor");
+      cursor.style.opacity = "1";
+    });
+  });
+</script>
