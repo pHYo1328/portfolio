@@ -202,11 +202,11 @@ import { yearsInIndustry } from "../js/yearsInIndustry";
   }
 </style>
 
-<script hoist>
+<script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
-    const nameElement = document.querySelector(".intro-name");
+    let nameElement = document.querySelector(".intro-name");
     nameElement.addEventListener("animationend", () => {
-      const cursor = document.querySelector(".cursor");
+      let cursor = document.querySelector(".cursor");
       cursor.style.opacity = "1";
     });
   });

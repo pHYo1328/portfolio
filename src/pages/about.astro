@@ -173,8 +173,8 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
   }
 </style>
 
-<script hoist>
+<script is:inline>
   import { greeting } from "../js/greeting";
-  const greetingContainer = document.getElementById("greeting");
+  let greetingContainer = document.getElementById("greeting");
   greetingContainer.innerText = greeting();
 </script>
