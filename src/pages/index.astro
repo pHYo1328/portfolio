@@ -207,12 +207,12 @@ import { yearsInIndustry } from "../js/yearsInIndustry";
   }
 </style>
 
-<script>
+<script is:inline>
   import "../js/wave";
   document.addEventListener("DOMContentLoaded", () => {
-    let nameElement = document.querySelector(".intro-name") as HTMLElement;
+    let nameElement = document.querySelector(".intro-name");
     nameElement.addEventListener("animationend", () => {
-      let cursor = document.querySelector(".cursor") as HTMLElement;
+      let cursor = document.querySelector(".cursor");
       cursor.style.opacity = "1";
     });
   });
