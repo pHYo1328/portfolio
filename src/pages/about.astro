@@ -46,68 +46,71 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
     </div>
   </section>
 
-  <section class="icon-container">
-    <div class="card">
-      <h1>Frontend</h1>
-      <div class="icon-row">
-        {
-          devIcons
-            .filter((icon) => icon.tag == "frontend")
-            .map((icon) => <DevLogo icon={icon.title} />)
-        }
+  <div class="container" style="margin: 2em auto;">
+    <h1 class="sub-heading">Tech Stacks</h1>
+    <section class="icon-container">
+      <div class="card">
+        <h1>Frontend</h1>
+        <div class="icon-row">
+          {
+            devIcons
+              .filter((icon) => icon.tag == "frontend")
+              .map((icon) => <DevLogo icon={icon.title} />)
+          }
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <h1>Backend</h1>
-      <div class="icon-row">
-        {
-          devIcons
-            .filter((icon) => icon.tag == "backend")
-            .map((icon) => <DevLogo icon={icon.title} />)
-        }
+      <div class="card">
+        <h1>Backend</h1>
+        <div class="icon-row">
+          {
+            devIcons
+              .filter((icon) => icon.tag == "backend")
+              .map((icon) => <DevLogo icon={icon.title} />)
+          }
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <h1>Database Management</h1>
-      <div class="icon-row">
-        {
-          devIcons
-            .filter((icon) => icon.tag == "database")
-            .map((icon) => <DevLogo icon={icon.title} />)
-        }
+      <div class="card">
+        <h1>Database Management</h1>
+        <div class="icon-row">
+          {
+            devIcons
+              .filter((icon) => icon.tag == "database")
+              .map((icon) => <DevLogo icon={icon.title} />)
+          }
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <h1>Programming Languages</h1>
-      <div class="icon-row">
-        {
-          devIcons
-            .filter((icon) => icon.tag == "lang")
-            .map((icon) => <DevLogo icon={icon.title} />)
-        }
+      <div class="card">
+        <h1>Programming Languages</h1>
+        <div class="icon-row">
+          {
+            devIcons
+              .filter((icon) => icon.tag == "lang")
+              .map((icon) => <DevLogo icon={icon.title} />)
+          }
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <h1>DevOps Tools</h1>
-      <div class="icon-row">
-        {
-          devIcons
-            .filter((icon) => icon.tag == "devOps")
-            .map((icon) => <DevLogo icon={icon.title} />)
-        }
+      <div class="card">
+        <h1>DevOps Tools</h1>
+        <div class="icon-row">
+          {
+            devIcons
+              .filter((icon) => icon.tag == "devOps")
+              .map((icon) => <DevLogo icon={icon.title} />)
+          }
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <h1>Mobile App Devlopment</h1>
-      <div class="icon-row">
-        {
-          devIcons
-            .filter((icon) => icon.tag == "mobile")
-            .map((icon) => <DevLogo icon={icon.title} />)
-        }
+      <div class="card">
+        <h1>Mobile App Devlopment</h1>
+        <div class="icon-row">
+          {
+            devIcons
+              .filter((icon) => icon.tag == "mobile")
+              .map((icon) => <DevLogo icon={icon.title} />)
+          }
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </DefaultLayout>
 
 <style lang="scss">
@@ -123,8 +126,8 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
   }
 
   .sub-heading {
-    margin-top: 0;
-    margin-bottom: 25px;
+    align-items: center;
+    text-align: center;
   }
 
   .icon-row {
@@ -139,9 +142,6 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     max-width: 1280px;
-    margin: 2em auto;
-    padding-left: 25px;
-    padding-right: 25px;
   }
 
   .card {
@@ -184,7 +184,6 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
 
     .icon-container {
       display: block;
-      width: 30rem;
     }
 
     .card {
