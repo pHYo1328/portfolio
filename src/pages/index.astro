@@ -126,14 +126,14 @@ import { yearsInIndustry } from "../js/yearsInIndustry";
   }
 
   .intro {
-    color: var(--color-silver-300);
+    color: var(--color-silver-250);
     font-size: var(--font-size-10xl);
     line-height: 3.25rem;
     margin: 1rem 0;
   }
 
   .desc {
-    color: var(--color-silver-100);
+    color: var(--color-silver-50);
     font-size: var(--font-size-lg);
     line-height: 1.5em;
     margin: 1.5rem 0;
@@ -190,7 +190,7 @@ import { yearsInIndustry } from "../js/yearsInIndustry";
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
-    VANTA.NET({
+    const effect = VANTA.NET({
       el: "#background",
       mouseControls: true,
       touchControls: true,
@@ -203,6 +203,7 @@ import { yearsInIndustry } from "../js/yearsInIndustry";
       THREE: THREE,
       backgroundAlpha: 0,
     });
+    effect.resize();
     let nameElement = document.querySelector(".intro-name");
     nameElement.addEventListener("animationend", () => {
       let cursor = document.querySelector(".cursor");
