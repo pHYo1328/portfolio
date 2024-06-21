@@ -1,0 +1,1 @@
+import"./hoisted.DahJwswE.js";import"./index.astro_astro_type_script_index_0_lang.B_st5uWx.js";import"./hoisted.eMTt_f2h.js";const n=new Date,e=n.getHours();function t(){return e>=4&&e<12?"Good morning!":e>=12&&e<18?"Good afternoon!":e>=18&&e<=23?"Good evening!":"Hey there!"}let r=document.getElementById("greeting");r.innerText=t();

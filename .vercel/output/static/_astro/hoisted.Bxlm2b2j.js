@@ -1,0 +1,1 @@
+import"https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js";import"https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";import"./index.astro_astro_type_script_index_0_lang.B_st5uWx.js";import"./hoisted.eMTt_f2h.js";
