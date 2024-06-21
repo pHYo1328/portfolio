@@ -1,8 +1,9 @@
 ---
 import DefaultLayout from "../components/LayoutDefault.astro";
 import PortfolioItem from "../components/PortfolioItem.astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
 ---
-
+<SpeedInsights/>
 <DefaultLayout
   documentTitle="Projects"
   documentDescription="Welcome to my portfolio, showcasing a selection of projects I've worked on."
@@ -120,12 +121,12 @@ import PortfolioItem from "../components/PortfolioItem.astro";
         projectYear="2023"
         title="Data Analysis for Music Trends"
         image="/images/pds.png"
-        tags={[
-          "Python"
-        ]}
+        tags={["Python"]}
       >
         <p slot="description">
-          Data Analysis Project for school assignment mainly focused on music trends, genre preferences, and cultural influrences in evolving music landscape.
+          Data Analysis Project for school assignment mainly focused on music
+          trends, genre preferences, and cultural influrences in evolving music
+          landscape.
         </p>
       </PortfolioItem>
       <PortfolioItem
