@@ -3,7 +3,8 @@ import DefaultLayout from "../components/LayoutDefault.astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import DevLogo, { devIcons } from "../components/DevLogo.astro";
 ---
-<SpeedInsights/>
+
+<SpeedInsights />
 <DefaultLayout
   documentTitle="About"
   documentDescription="I'm Kaung Si Phyo, a student pursuing Diploma in Infomation Technology with the minor of Data analysis and AI in the Singapore Polytechnic."
@@ -20,11 +21,11 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
     </div>
 
     <div class="main-section">
-      <img
-        class="profile-photo"
-        src="/images/profile_pic.JPG"
-        alt="Kaung Si Phyo"
-      />
+        <img
+          class="profile-photo"
+          src="/images/profile_pic.JPG"
+          alt="Kaung Si Phyo"
+        />
       <div class="main-section-text">
         <p>
           I am quite proficient in technologies such as JavaScript, TypeScript,
@@ -123,6 +124,7 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
 
   .profile-photo {
     width: 200px;
+    
   }
 
   .sub-heading {
@@ -145,6 +147,7 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
   }
 
   .card {
+    filter: drop-shadow(0 0 3rem rgb(21 255 147 / 35%));
     border: 1px solid var(--color-mint);
     border-radius: 10px;
     padding: 20px;

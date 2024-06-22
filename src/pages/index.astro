@@ -4,9 +4,10 @@ import Button from "../components/Button.astro";
 import { yearsInIndustry } from "../js/yearsInIndustry";
 import SpeedInsights from "@vercel/speed-insights/astro";
 ---
-<SpeedInsights/>
+
+<SpeedInsights />
 <DefaultLayout documentTitle="Kaung Si Phyo">
-  <div id="background">
+  <div id="background" style="z-index: 0;">
     <section class="container" style="z-index: 1; position: relative;">
       <h1>
         <span class="intro-welcome">Hello and Welcome, I'm</span><br />
@@ -16,39 +17,28 @@ import SpeedInsights from "@vercel/speed-insights/astro";
       <h2 class="intro">
         Crafting Memorable <br class="intro-break" />Digital Experiences
       </h2>
-      <p class="desc">
-        I am a diligent student at Singapore Polytechnic, currently pursuing a <br
-          class="desc break"
-        />
-        diploma in Information Technology with a minor in Data Analysis and AI. My<br
-          class="desc break"
-        />
-        passion for technology is matched by my commitment to developing scalable
-        web<br class="desc break" />
-        applications.
-      </p>
-      <p class="desc">
-        With over {yearsInIndustry} years of experience specializing in JavaScript,<br
-          class="desc break"
-        />
-        React, Node.js, and Python, I've honed my skills in software development
-        while<br class="desc break" />
-        also diving deep into data analytics. My academic and project works reflect<br
-          class="desc break"
-        />
-        a blend of technical expertise and a strong understanding of data-driven
-        decision<br class="desc break" />
-        making.
-      </p>
-      <p class="desc">
-        I am also proactive in sharing my knowledge with peers, helping others<br
-          class="desc break"
-        />
-        understand complex concepts and encouraging a culture of innovation and continuous<br
-          class="desc break"
-        />
-        learning.<br class="desc break" />
-      </p>
+      <div class="desc-container">
+        <div class="blur-bg">
+          <p class="desc">
+            I am a diligent student at Singapore Polytechnic, currently pursuing
+            a diploma in Information Technology with a minor in Data Analysis
+            and AI. My passion for technology is matched by my commitment to
+            developing scalable web applications.
+          </p>
+          <p class="desc">
+            With over {yearsInIndustry} years of experience specializing in JavaScript,
+            React, Node.js, and Python, I've honed my skills in software development
+            while also diving deep into data analytics. My academic and project works
+            reflect a blend of technical expertise and a strong understanding of
+            data-driven decision making.
+          </p>
+          <p class="desc">
+            I am also proactive in sharing my knowledge with peers, helping
+            others understand complex concepts and encouraging a culture of
+            innovation and continuous learning.
+          </p>
+        </div>
+      </div>
 
       <div class="button-container">
         <Button
@@ -137,6 +127,21 @@ import SpeedInsights from "@vercel/speed-insights/astro";
     color: var(--color-silver-50);
     font-size: var(--font-size-lg);
     line-height: 1.5em;
+  }
+
+  .blur-bg {
+    background-color: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    grid-column: 1 / 2;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .desc-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
     margin: 1.5rem 0;
   }
 
@@ -144,6 +149,9 @@ import SpeedInsights from "@vercel/speed-insights/astro";
     h1 {
       line-height: 1.75rem;
       margin: 0.5rem 0;
+    }
+    .blur-bg {
+      backdrop-filter: blur(5px); 
     }
 
     .intro-name {
@@ -161,8 +169,8 @@ import SpeedInsights from "@vercel/speed-insights/astro";
       display: none;
     }
 
-    .desc-break {
-      display: none;
+    .desc-container {
+      display: block;
     }
 
     .button-container {
@@ -191,7 +199,7 @@ import SpeedInsights from "@vercel/speed-insights/astro";
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
-    const effect = VANTA.NET({
+    const effectSettings = {
       el: "#background",
       mouseControls: true,
       touchControls: true,
@@ -201,14 +209,41 @@ import SpeedInsights from "@vercel/speed-insights/astro";
       scale: 1.0,
       scaleMobile: 1.0,
       color: 0x15ff93,
-      THREE: THREE,
       backgroundAlpha: 0,
-    });
+      THREE: THREE,
+    };
+
+    function adjustVantaForDevice() {
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        // Mobile settings
+        return VANTA.NET({
+          ...effectSettings,
+          points: 5,
+          maxDistance: 15,
+        });
+      } else {
+        // Desktop settings
+        return VANTA.NET({
+          ...effectSettings,
+          points: 10,
+          maxDistance: 20,
+        });
+      }
+    }
+
+    const effect = adjustVantaForDevice();
     effect.resize();
+
     let nameElement = document.querySelector(".intro-name");
     nameElement.addEventListener("animationend", () => {
       let cursor = document.querySelector(".cursor");
       cursor.style.opacity = "1";
+    });
+
+    // Re-apply settings on window resize
+    window.addEventListener("resize", () => {
+      effect.destroy();
+      adjustVantaForDevice().resize();
     });
   });
 </script>
