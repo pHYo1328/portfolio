@@ -21,11 +21,11 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
     </div>
 
     <div class="main-section">
-        <img
-          class="profile-photo"
-          src="/images/profile_pic.JPG"
-          alt="Kaung Si Phyo"
-        />
+      <img
+        class="profile-photo hero-img"
+        src="/images/profile_pic.JPG"
+        alt="Kaung Si Phyo"
+      />
       <div class="main-section-text">
         <p>
           I am quite proficient in technologies such as JavaScript, TypeScript,
@@ -124,7 +124,9 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
 
   .profile-photo {
     width: 200px;
-    
+    border-radius: 250px 750px 250px 750px / 750px 250px 750px 250px;
+    animation: wobble 10s ease-in-out alternate infinite;
+    box-shadow: 0px 0px 100px #01f53e64;
   }
 
   .sub-heading {
@@ -193,6 +195,28 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
       margin-bottom: 30px;
     }
   }
+  @keyframes wobble {
+    50% {
+      border-radius: 750px 550px 350px 750px / 350px 750px 550px 450px;
+    }
+    100% {
+      border-radius: 750px 250px 750px 250px / 250px 750px 250px 750px;
+    }
+  }
+  @keyframes jump {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
 </style>
 
 <script>
@@ -201,4 +225,5 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
   let greetingContainer = document.getElementById("greeting");
 
   greetingContainer!.innerText = greeting();
+  
 </script>
