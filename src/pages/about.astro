@@ -203,19 +203,6 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
       border-radius: 750px 250px 750px 250px / 250px 750px 250px 750px;
     }
   }
-  @keyframes jump {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  .jumping {
-    animation: jump 0.5s ease;
-  }
 </style>
 
 <script>
@@ -224,17 +211,4 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
   let greetingContainer = document.getElementById("greeting");
 
   greetingContainer!.innerText = greeting();
-  document.addEventListener("DOMContentLoaded", () => {
-    const icons = document.querySelectorAll(".icon-row .devicon"); // Adjust selector to match your actual icons
-    console.log(icons);
-    function randomJump() {
-      icons.forEach((icon) => icon.classList.remove("jumping")); // Remove class from all icons
-      const randomIcon = icons[Math.floor(Math.random() * icons.length)]; // Pick a random icon
-      randomIcon.classList.add("jumping"); // Add the jumping class to make it animate
-
-      setTimeout(randomJump, 1000); // Schedule the next jump in 1 second
-    }
-
-    randomJump(); // Start the random jumping
-  });
 </script>
