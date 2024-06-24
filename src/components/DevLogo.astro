@@ -123,28 +123,28 @@ if (!logo) {
 
   singleton.enable();
   document.addEventListener('DOMContentLoaded', function() {
-  const icons = document.querySelectorAll('.devicon');
-  const animations = ['hithere', 'shake', 'swing', 'hindge']; 
+  // const icons = document.querySelectorAll('.devicon');
+  // const animations = ['hithere', 'shake', 'swing', 'hindge']; 
 
-  function applyRandomAnimations() {
-    icons.forEach(icon => {
-      animations.forEach(animation => {
-        icon.classList.remove(animation);
-      });
-    });
+  // function applyRandomAnimations() {
+  //   icons.forEach(icon => {
+  //     animations.forEach(animation => {
+  //       icon.classList.remove(animation);
+  //     });
+  //   });
 
-    let selectedIndices = new Set();
-    while(selectedIndices.size < 4) {
-      selectedIndices.add(Math.floor(Math.random() * icons.length));
-    }
+  //   let selectedIndices = new Set();
+  //   while(selectedIndices.size < 4) {
+  //     selectedIndices.add(Math.floor(Math.random() * icons.length));
+  //   }
 
-    selectedIndices.forEach(index => {
-      const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
-      icons[Number(index)].classList.add(randomAnimation);
-    });
-  }
+  //   selectedIndices.forEach(index => {
+  //     const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
+  //     icons[Number(index)].classList.add(randomAnimation);
+  //   });
+  // }
 
-  applyRandomAnimations();
-  setInterval(applyRandomAnimations, 4000);
+  // applyRandomAnimations();
+  // setInterval(applyRandomAnimations, 4000);
 });
 </script>
