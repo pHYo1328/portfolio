@@ -151,7 +151,7 @@ import SpeedInsights from "@vercel/speed-insights/astro";
       margin: 0.5rem 0;
     }
     .blur-bg {
-      backdrop-filter: blur(5px); 
+      backdrop-filter: blur(5px);
     }
 
     .intro-name {
@@ -213,37 +213,12 @@ import SpeedInsights from "@vercel/speed-insights/astro";
       THREE: THREE,
     };
 
-    function adjustVantaForDevice() {
-      if (window.matchMedia("(max-width: 768px)").matches) {
-        // Mobile settings
-        return VANTA.NET({
-          ...effectSettings,
-          points: 5,
-          maxDistance: 15,
-        });
-      } else {
-        // Desktop settings
-        return VANTA.NET({
-          ...effectSettings,
-          points: 10,
-          maxDistance: 20,
-        });
-      }
-    }
-
-    const effect = adjustVantaForDevice();
-    effect.resize();
+    let effect = VANTA.NET(effectSettings);
 
     let nameElement = document.querySelector(".intro-name");
     nameElement.addEventListener("animationend", () => {
       let cursor = document.querySelector(".cursor");
       cursor.style.opacity = "1";
-    });
-
-    // Re-apply settings on window resize
-    window.addEventListener("resize", () => {
-      effect.destroy();
-      adjustVantaForDevice().resize();
     });
   });
 </script>
