@@ -7,7 +7,7 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
 <SpeedInsights />
 <DefaultLayout
   documentTitle="About"
-  documentDescription="I'm Kaung Si Phyo, a student pursuing Diploma in Infomation Technology with the minor of Data analysis and AI in the Singapore Polytechnic."
+  documentDescription="I'm Kaung Si Phyo, a Computer Science (Honours) student at Nanyang Technological University, Singapore, with a Second Major in Entrepreneurship."
 >
   <section class="container">
     <h1 class="main-heading text-swipe-animation" id="greeting">
@@ -15,8 +15,9 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
     </h1>
     <div class="intro">
       <p>
-        I'm Kaung Si Phyo, a student pursuing Diploma in Infomation Technology
-        with the minor of Data analysis and AI in the Singapore Polytechnic.
+        I'm Kaung Si Phyo, a Computer Science (Honours) student at Nanyang
+        Technological University, Singapore, with a Second Major in
+        Entrepreneurship.
       </p>
     </div>
 
@@ -28,20 +29,27 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
       />
       <div class="main-section-text">
         <p>
-          I am quite proficient in technologies such as JavaScript, TypeScript,
-          React, HTML, and CSS. I have a keen interest in design and UI/UX, and
-          I also have experience with back end development using
-          Node/Express.js, SQL/NoSQL, and REST/tRPC and DevOps using AWS, SST,
-          docker and terraform.
+          I work across the full stack with technologies like React, TypeScript,
+          Next.js, Flutter, Python, and SQL. I have hands-on experience in data
+          analytics and visualisation using R, AWS QuickSight, and Python, as
+          well as back-end development with Node/Express.js, SQL/NoSQL, and
+          REST/tRPC. I also work with DevOps tooling including AWS, Docker, and
+          Terraform.
+        </p>
+        <p>
+          Currently, I work part-time as an Assistant Executive at the Ministry
+          of Health Holdings (MOHT), contributing to the HOPES digital
+          phenotyping project — building analytics dashboards, writing complex
+          SQL queries, and validating feature extraction pipelines.
         </p>
         <p>
           I'm passionate about solving problems and building efficient,
-          organised systems that are fast, performant and accessible to
+          organised systems that are fast, performant, and accessible to
           everyone.
         </p>
         <p>
-          During my free time, I enjoy activities such as reading, cooking, and
-          gaming.
+          Outside of work and studies, I enjoy pencil sketching, cursive
+          penmanship, playing the guzheng and piano, and hitting the gym.
         </p>
       </div>
     </div>
@@ -91,6 +99,16 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
         </div>
       </div>
       <div class="card">
+        <h1>Data & Analytics</h1>
+        <div class="icon-row">
+          {
+            devIcons
+              .filter((icon) => icon.tag == "data")
+              .map((icon) => <DevLogo icon={icon.title} />)
+          }
+        </div>
+      </div>
+      <div class="card">
         <h1>DevOps Tools</h1>
         <div class="icon-row">
           {
@@ -101,7 +119,7 @@ import DevLogo, { devIcons } from "../components/DevLogo.astro";
         </div>
       </div>
       <div class="card">
-        <h1>Mobile App Devlopment</h1>
+        <h1>Mobile App Development</h1>
         <div class="icon-row">
           {
             devIcons
