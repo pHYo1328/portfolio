@@ -1,223 +1,176 @@
 ---
 import DefaultLayout from "../components/LayoutDefault.astro";
-import Button from "../components/Button.astro";
-import { yearsInIndustry } from "../js/yearsInIndustry";
+import PortfolioItem from "../components/PortfolioItem.astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 ---
+<SpeedInsights/>
+<DefaultLayout
+  documentTitle="Projects"
+  documentDescription="Welcome to my portfolio, showcasing a selection of projects I've worked on."
+>
+  <div class="container">
+    <h1 class="main-heading text-swipe-animation">Projects</h1>
+    <div class="intro">
+      <p>
+        Welcome to my portfolio, showcasing a selection of projects and side
+        projects I've worked on.
+      </p>
+    </div>
 
-<SpeedInsights />
-<DefaultLayout documentTitle="Kaung Si Phyo">
-  <div id="background" style="z-index: 0;">
-    <section class="container" style="z-index: 1; position: relative;">
-      <h1>
-        <span class="intro-welcome">Hello and Welcome, I'm</span><br />
-        <span class="intro-name text-swipe-animation">Kaung Si Phyo.</span>
-        <span class="cursor"></span>
-      </h1>
-      <h2 class="intro">
-        Crafting Memorable <br class="intro-break" />Digital Experiences
-      </h2>
-      <div class="desc-container">
-        <div class="blur-bg">
-          <p class="desc">
-            I am a Computer Science (Honours) student at Nanyang Technological
-            University, Singapore, with a Second Major in Entrepreneurship.
-            Currently, I work part-time as an Assistant Executive at the
-            Ministry of Health Holdings (MOHT), contributing to the HOPES
-            digital phenotyping project.
-          </p>
-          <p class="desc">
-            With over {yearsInIndustry} years of experience spanning React, TypeScript,
-            Next.js, Python, Flutter, and SQL, I build scalable web and mobile applications
-            while also diving deep into data analytics and visualisation with tools
-            like R, AWS QuickSight, and Python.
-          </p>
-          <p class="desc">
-            I am proactive in sharing knowledge with peers, mentoring juniors,
-            and fostering a culture of innovation and continuous learning.
-          </p>
-        </div>
-      </div>
-
-      <div class="button-container">
-        <Button
-          variant="outline"
-          size="md"
-          colorScheme="orange"
-          href="/Kaung Si Phyo Resume.pdf"
-          gap="10px"
-        >
-          View Resume
-          <svg
-            style="margin-left: 5px"
-            stroke="currentColor"
-            fill="currentColor"
-            stroke-width="0"
-            viewBox="0 0 20 20"
-            height="1em"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-            ><path
-              fill-rule="evenodd"
-              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-              clip-rule="evenodd"></path></svg
-          >
-        </Button>
-
-        <Button
-          href="/projects"
-          variant="outline"
-          size="md"
-          colorScheme="green"
-        >
-          View projects
-          <svg
-            style="margin-left: 5px"
-            stroke="currentColor"
-            fill="currentColor"
-            stroke-width="0"
-            viewBox="0 0 20 20"
-            height="1em"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-            ><path
-              fill-rule="evenodd"
-              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-              clip-rule="evenodd"></path></svg
-          >
-        </Button>
-      </div>
+    <section class="projects">
+      <PortfolioItem
+        isOpenSource
+        sourceCode="https://github.com/pHYo1328/portfolio"
+        projectYear="2024"
+        title="My Personal Portfolio"
+        image="/images/portfolio.png"
+        tags={["JavaScript", "TypeScript", "Astro", "CSS", "HTML"]}
+        projectLink="www.phyonn.com"
+      >
+        <p slot="description">
+          Yes, you are seeing this project now. I recreated my portfolio with
+          Astro.
+        </p>
+      </PortfolioItem>
+      <PortfolioItem
+        projectLink="https://cron.timeles.live"
+        projectYear="2024"
+        title="SST Cron Job"
+        image="/images/sstCron.png"
+        tags={[
+          "TypeScript",
+          "Next.js",
+          "Tailwind CSS",
+          "tRPC",
+          "Prisma",
+          "AWS",
+          "SST",
+        ]}
+      >
+        <p slot="description">
+          For our IMCS toolkit project, my friend and I developed a proof of
+          concept for scheduled email sending using SST as Infrastructure as
+          Code (IaC) and AWS EventBridge for scheduling.
+        </p>
+      </PortfolioItem>
+      <PortfolioItem
+        isOpenSource
+        sourceCode="https://github.com/pHYo1328/ande"
+        projectYear="2024"
+        title="ZenBudget"
+        image="/images/android.png"
+        tags={["Android", "MUI", "Figma", "Firebase"]}
+      >
+        <p slot="description">
+          Collaborated with my friends to create a financial management app with
+          AI advisor with Android and Material UI
+        </p>
+      </PortfolioItem>
+      <PortfolioItem
+        isOpenSource
+        sourceCode="https://github.com/pHYo1328/whiteboardApp"
+        projectYear="2024"
+        title="whiteboard app"
+        image="/images/whiteboard.png"
+        tags={["TypeScript", "Next.js", "Tailwind CSS", "tRPC", "Prisma"]}
+      >
+        <p slot="description">
+          Researched and learned Tldraw and Excalidraw libraries; developed a
+          collaborative whiteboard app using Socket.IO for real-time
+          interactions.
+        </p>
+      </PortfolioItem>
+      <PortfolioItem
+        isOpenSource
+        sourceCode="https://github.com/pHYo1328/inc-dynamic-form-builder"
+        projectLink="https://inc-dynamic-builder.vercel.app"
+        projectYear="2023"
+        title="Dynamic Form Builder"
+        image="/images/formBuilder.png"
+        tags={["TypeScript", "Next.js", "Tailwind CSS", "tRPC", "Prisma"]}
+      >
+        <p slot="description">
+          Utilized Next.js T3 stack to create a Google Form builder clone,
+          developed with TypeScript for type safety and dnd-kit to enhance user
+          experience.
+        </p>
+      </PortfolioItem>
+      <PortfolioItem
+        projectYear="2023"
+        title="Techzero"
+        image="/images/techzero.webp"
+        projectLink="https://techzero.onrender.com"
+        tags={[
+          "JavaScript",
+          "React",
+          "Tailwind CSS",
+          "MySQL",
+          "Express.js",
+          "Node.js",
+          "Redis",
+        ]}
+      >
+        <p slot="description">
+          Inspired by Challenger , with my 3 friends, we create an e-commerce
+          tech platform developed for our school project.
+        </p>
+      </PortfolioItem>
+      <PortfolioItem
+        isOpenSource
+        sourceCode="https://github.com/pHYo1328/PDS-CA2"
+        projectYear="2023"
+        title="Data Analysis for Music Trends"
+        image="/images/pds.png"
+        tags={["Python"]}
+      >
+        <p slot="description">
+          Data Analysis Project for school assignment mainly focused on music
+          trends, genre preferences, and cultural influrences in evolving music
+          landscape.
+        </p>
+      </PortfolioItem>
+      <PortfolioItem
+        isOpenSource
+        sourceCode="https://github.com/pHYo1328/MAD"
+        projectYear="2022"
+        title="Pocket Mart"
+        image="/images/mad.png"
+        tags={["JavaScript", "React Native", "Supabase"]}
+      >
+        <p slot="description">
+          Utilised React-Native and supabase as database to create an e-commerce
+          app clone for school project.
+        </p>
+      </PortfolioItem>
     </section>
   </div>
 </DefaultLayout>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
-></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js"></script>
 
 <style lang="scss">
-  h1 {
-    line-height: 2.5rem;
-    margin: 1rem 0;
-  }
-
-  .intro-welcome {
-    color: var(--color-mint);
-    font-family: var(--font-family-IBM-Plex-Mono);
-    font-weight: 600;
-    font-size: var(--font-size-base);
-  }
-
-  .intro-name {
-    font-family: var(--font-family-Mukta);
-    font-size: var(--font-size-14xl);
-    display: inline-block;
-    padding: 10px 0;
-    color: var(--color-mint);
-  }
-
-  .intro {
-    color: var(--color-silver-250);
-    font-size: var(--font-size-10xl);
-    line-height: 3.25rem;
-    margin: 1rem 0;
-  }
-
-  .desc {
-    color: var(--color-silver-50);
-    font-size: var(--font-size-lg);
-    line-height: 1.5em;
-  }
-
-  .blur-bg {
-    background-color: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 8px;
-    grid-column: 1 / 2;
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-
-  .desc-container {
+  .projects {
+    row-gap: 2rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-    margin: 1.5rem 0;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    align-items: stretch;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .projects {
+      row-gap: 2rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      align-items: stretch;
+    }
   }
 
   @media screen and (max-width: 980px) {
-    h1 {
-      line-height: 1.75rem;
-      margin: 0.5rem 0;
-    }
-    .blur-bg {
-      backdrop-filter: blur(5px);
-    }
-
-    .intro-name {
-      font-size: var(--font-size-10xl);
-      line-height: 3rem;
-    }
-
-    .intro {
-      font-size: var(--font-size-3xl);
-      line-height: 2rem;
-      margin: 0.5rem 0;
-    }
-
-    .intro-break {
-      display: none;
-    }
-
-    .desc-container {
-      display: block;
-    }
-
-    .button-container {
+    .projects {
+      margin: 1.5rem;
       display: flex;
       flex-direction: column;
-      row-gap: 20px;
-    }
-  }
-
-  .cursor {
-    display: inline-block;
-    width: 20px;
-    height: 4rem;
-    opacity: 0;
-    background-color: var(--color-mint);
-    margin-left: 10px;
-    animation: blink 900ms steps(2, start) infinite;
-  }
-
-  @keyframes blink {
-    50% {
-      opacity: 0;
+      align-items: stretch;
     }
   }
 </style>
-
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    const effectSettings = {
-      el: "#background",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.0,
-      minWidth: 200.0,
-      scale: 1.0,
-      scaleMobile: 1.0,
-      color: 0x15ff93,
-      backgroundAlpha: 0,
-      THREE: THREE,
-    };
-
-    let effect = VANTA.NET(effectSettings);
-
-    let nameElement = document.querySelector(".intro-name");
-    nameElement.addEventListener("animationend", () => {
-      let cursor = document.querySelector(".cursor");
-      cursor.style.opacity = "1";
-    });
-  });
-</script>
